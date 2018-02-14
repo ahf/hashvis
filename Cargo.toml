@@ -7,6 +7,9 @@ repository = "https://github.com/ahf/hashvis"
 license = "BSD-2-Clause"
 readme = "README.markdown"
 
+[badges]
+travis-ci = { repository = "ahf/hashvis", branch = "master" }
+
 [lib]
 name = "hashvis"
 path = "src/hashvis/lib.rs"
