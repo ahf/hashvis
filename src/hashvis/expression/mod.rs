@@ -87,14 +87,3 @@ impl Generator {
         set.remove(0)
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn format() {
-        // let mut generator = Generator::new([0; 32]);
-        // assert_eq!("", format!("{}", generator.generate()));
-    }
-}

@@ -43,6 +43,7 @@ impl fmt::Display for Product {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use expression::{X, Y};
 
     #[test]
     fn format() {

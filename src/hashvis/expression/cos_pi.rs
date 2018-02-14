@@ -41,6 +41,7 @@ impl fmt::Display for CosPi {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use expression::{X, Y};
 
     #[test]
     fn format() {
