@@ -1,0 +1,23 @@
+[package]
+name = "hashvis"
+version = "0.1.0"
+description = "Visualize hashed values as images."
+authors = ["Alexander Færøy <ahf@0x90.dk>"]
+repository = "https://github.com/ahf/hashvis"
+license = "BSD-2-Clause"
+readme = "README.markdown"
+
+[lib]
+name = "hashvis"
+path = "src/hashvis/lib.rs"
+
+[dependencies]
+image = "*"
+rand = "0.4"
+sha3 = "0.7.2"
+clap = "2.30.0"
+
+[[bin]]
+name = "hashvis"
+test = false
+doc = false
