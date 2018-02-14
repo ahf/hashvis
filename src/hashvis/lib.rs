@@ -38,6 +38,10 @@ impl ImageGenerator {
 
         assert!(size % 2 == 0);
 
+        println!("R: f(x, y) = {}", self.r);
+        println!("G: f(x, y) = {}", self.g);
+        println!("B: f(x, y) = {}", self.b);
+
         let image = RgbImage::from_fn(size, size, |i_x, i_y| {
             let x = ((i_x as f64) - unit_size) / unit_size;
             let y = ((i_y as f64) - unit_size) / unit_size;
