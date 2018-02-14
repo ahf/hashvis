@@ -40,4 +40,11 @@ mod tests {
     fn format() {
         assert_eq!("x", format!("{}", X::new()));
     }
+
+    #[test]
+    fn evaluate() {
+        let x = X::new();
+        assert_eq!(x.evaluate(-1.0, 1.0), -1.0);
+        assert_eq!(x.evaluate(1.0, -1.0), 1.0);
+    }
 }
