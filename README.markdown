@@ -36,3 +36,4 @@ To run the minimal test suite:
 ## Gallery
 
 ![ahf](https://raw.githubusercontent.com/ahf/hashvis/master/misc/examples/ahf.png "SHA3(ahf)")
+![Foobar](https://raw.githubusercontent.com/ahf/hashvis/master/misc/examples/Foobar.png "SHA3(Foobar)")
