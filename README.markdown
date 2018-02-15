@@ -1,6 +1,30 @@
 # Hashvis  [![Build Status](https://travis-ci.org/ahf/hashvis.svg?branch=master)](https://travis-ci.org/ahf/hashvis)
 
-**A Rust application for deterministically generation of images.**
+**A Rust application for deterministic generation of images.**
+
+Hashvis is a small Rust application and library for generating very psychedelic
+images from an input string. The images are generated in a deterministic manner
+such that the same input string should always result in the same image being
+generated.
+
+Hashvis is inspired by OpenSSH's `VisualHostKey` where the OpenSSH client will
+display a deterministic piece of ASCII art generated from the host keys when
+you are trying to authenticate with a remote server. The idea behind this
+feature is that humans have an easier way to remember visual impressions than
+long, hex-encoded, fingerprints.
+
+Example usage could be:
+
+- OpenSSH host keys (like with `VisualHostKey`).
+- OpenPGP public key fingerprint as an argument and have a unique image for
+  your public key.
+- Tor onion and next-generation onion public key.
+
+Currently Hashvis takes the user input string and passes it to the SHA3-256
+hash function and uses this hash value to seed the ChaCha random number
+generator. The random number generator is then used to generate a lot of 64-bit
+floating-point values that are used to generate the expressions that is finally
+used to plot the RGB image.
 
 ## Building Hashvis
 
