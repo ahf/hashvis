@@ -5,17 +5,15 @@
 use std::fmt;
 
 use expression::{Evaluate, Generator};
-use math::{PI, cos};
+use math::{cos, PI};
 
 pub struct CosPi {
-    expression: Box<Evaluate>
+    expression: Box<Evaluate>,
 }
 
 impl CosPi {
     pub fn new(expression: Box<Evaluate>) -> CosPi {
-        CosPi {
-            expression,
-        }
+        CosPi { expression }
     }
 
     pub fn generate(generator: &mut Generator, probability: f64) -> Box<Evaluate> {

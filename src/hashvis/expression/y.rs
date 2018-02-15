@@ -11,7 +11,7 @@ pub struct Y;
 
 impl Y {
     pub fn new() -> Y {
-        Y { }
+        Y {}
     }
 
     pub fn generate() -> Box<Evaluate> {

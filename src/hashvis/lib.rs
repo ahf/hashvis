@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-extern crate rand;
 extern crate image;
+extern crate rand;
 
 use std::fs::File;
 
-use image::{Rgb, RgbImage, ImageRgb8, PNG};
+use image::{ImageRgb8, Rgb, RgbImage, PNG};
 
 /// Expression types and helpers.
 mod expression;

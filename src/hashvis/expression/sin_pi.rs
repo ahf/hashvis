@@ -5,17 +5,15 @@
 use std::fmt;
 
 use expression::{Evaluate, Generator};
-use math::{PI, sin};
+use math::{sin, PI};
 
 pub struct SinPi {
-    expression: Box<Evaluate>
+    expression: Box<Evaluate>,
 }
 
 impl SinPi {
     pub fn new(expression: Box<Evaluate>) -> SinPi {
-        SinPi {
-            expression,
-        }
+        SinPi { expression }
     }
 
     pub fn generate(generator: &mut Generator, probability: f64) -> Box<Evaluate> {

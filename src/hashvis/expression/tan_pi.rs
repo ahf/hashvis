@@ -5,17 +5,15 @@
 use std::fmt;
 
 use expression::{Evaluate, Generator};
-use math::{PI, tan};
+use math::{tan, PI};
 
 pub struct TanPi {
-    expression: Box<Evaluate>
+    expression: Box<Evaluate>,
 }
 
 impl TanPi {
     pub fn new(expression: Box<Evaluate>) -> TanPi {
-        TanPi {
-            expression,
-        }
+        TanPi { expression }
     }
 
     pub fn generate(generator: &mut Generator, probability: f64) -> Box<Evaluate> {

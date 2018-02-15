@@ -39,7 +39,7 @@ pub trait Evaluate: fmt::Display {
 }
 
 pub struct Generator {
-    rng: Box<Rng>
+    rng: Box<Rng>,
 }
 
 impl Generator {
@@ -56,7 +56,7 @@ impl Generator {
         }
 
         Generator {
-            rng: Box::new(ChaChaRng::from_seed(v.as_slice()))
+            rng: Box::new(ChaChaRng::from_seed(v.as_slice())),
         }
     }
 

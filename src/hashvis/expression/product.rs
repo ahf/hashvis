@@ -47,8 +47,9 @@ mod tests {
 
     #[test]
     fn format() {
-        assert_eq!("x * y",
-                   format!("{}", Product::new(Box::new(X::new()),
-                                              Box::new(Y::new()))));
+        assert_eq!(
+            "x * y",
+            format!("{}", Product::new(Box::new(X::new()), Box::new(Y::new())))
+        );
     }
 }
