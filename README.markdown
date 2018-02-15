@@ -15,10 +15,9 @@ long, hex-encoded, fingerprints.
 
 Example usage could be:
 
-- OpenSSH host keys (like with `VisualHostKey`).
-- OpenPGP public key fingerprint as an argument and have a unique image for
-  your public key.
-- Tor onion and next-generation onion public key.
+- OpenSSH host keys (like with `VisualHostKey` described above).
+- OpenPGP public key fingerprints.
+- Tor onion and next-generation onion public keys.
 
 Currently Hashvis takes the user input string and passes it to the SHA3-256
 hash function and uses this hash value to seed the ChaCha random number
