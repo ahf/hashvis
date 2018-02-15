@@ -12,7 +12,7 @@ To download and build Hashvis:
 
 You can try running the application using:
 
-    $ cargo run --bin hashvis misc/examples/yourusername.png yourusername
+    $ cargo run --bin hashvis misc/examples/yourusername.png yourusername 256
         Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs
          Running `target/debug/hashvis misc/examples/yourusername.png yourusername`
     Generating image with SHA3("yourusername") in misc/examples/yourusername.png ...
@@ -35,4 +35,4 @@ To run the minimal test suite:
 
 ## Gallery
 
-- ![ahf](https://raw.githubusercontent.com/ahf/hashvis/master/misc/examples/ahf.png "SHA3(ahf)")
+![ahf](https://raw.githubusercontent.com/ahf/hashvis/master/misc/examples/ahf.png "SHA3(ahf)")
