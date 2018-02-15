@@ -27,11 +27,16 @@ fn main() {
              .takes_value(true)
              .index(2)
              .help("Input string to hash with SHA3-256."))
+        .arg(Arg::with_name("size")
+             .required(true)
+             .takes_value(true)
+             .index(3)
+             .help("Size of the output image"))
         .get_matches();
 
     let filename = matches.value_of("filename").unwrap();
     let string = matches.value_of("string").unwrap();
-    let size = 512;
+    let size = matches.value_of("size").unwrap();
 
     println!("Generating image with SHA3(\"{}\") in {} ...", string, filename);
 
@@ -40,5 +45,5 @@ fn main() {
     let r = h.result();
 
     let generator = ImageGenerator::new(r.as_slice());
-    generator.generate(String::from(filename), size);
+    generator.generate(String::from(filename), size.parse().unwrap_or(256));
 }
