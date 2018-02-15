@@ -32,3 +32,7 @@ To run the minimal test suite:
 ## Authors
 
 - Alexander Færøy (<ahf@0x90.dk>).
+
+## Gallery
+
+- ![ahf](https://raw.githubusercontent.com/ahf/hashvis/master/misc/examples/ahf.png "SHA3(ahf)")
