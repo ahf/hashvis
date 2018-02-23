@@ -25,6 +25,9 @@ use self::cos_pi::CosPi;
 mod tan_pi;
 use self::tan_pi::TanPi;
 
+mod elliptic_curve;
+use self::elliptic_curve::EllipticCurve;
+
 /// Trait for items that supports evaluating expressions at a given
 /// point in a Cartesian coordinate system.
 pub trait Evaluate: fmt::Display {
@@ -78,6 +81,7 @@ impl Generator {
             set.push(CosPi::generate(self, probability));
             set.push(TanPi::generate(self, probability));
             set.push(Product::generate(self, probability));
+            set.push(EllipticCurve::generate(self));
         } else {
             set.push(X::generate());
             set.push(Y::generate());
