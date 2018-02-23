@@ -36,6 +36,6 @@ impl Evaluate for EllipticCurve {
 
 impl fmt::Display for EllipticCurve {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "x^3 + {} * x + {} - y^2", self.a, self.b)
+        write!(f, "EllipticCurve(x^3 + {} * x + {} - y^2)", self.a, self.b)
     }
 }
