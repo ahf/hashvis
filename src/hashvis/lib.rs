@@ -16,6 +16,10 @@ use self::expression::{Evaluate, Generator};
 /// Various math helpers.
 mod math;
 
+fn to_u8(x: f64) -> u8 {
+    (x * 127.5 + 127.5) as u8
+}
+
 pub struct ImageGenerator {
     r: Box<Evaluate>,
     g: Box<Evaluate>,
@@ -46,11 +50,11 @@ impl ImageGenerator {
             let x = ((i_x as f64) - unit_size) / unit_size;
             let y = ((i_y as f64) - unit_size) / unit_size;
 
-            let r = (self.r.evaluate(x, y) * 127.5 + 127.5) as u8;
-            let g = (self.g.evaluate(x, y) * 127.5 + 127.5) as u8;
-            let b = (self.b.evaluate(x, y) * 127.5 + 127.5) as u8;
+            let r = self.r.evaluate(x, y);
+            let g = self.g.evaluate(x, y);
+            let b = self.b.evaluate(x, y);
 
-            Rgb([r, g, b])
+            Rgb([to_u8(r), to_u8(g), to_u8(b)])
         });
 
         let file = &mut File::create(filename).unwrap();
