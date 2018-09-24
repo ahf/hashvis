@@ -56,6 +56,17 @@ To run the minimal test suite:
 
 - Alexander Færøy (<ahf@0x90.dk>).
 
+## Interactive Twitter Bot
+
+Matthew Garrett (@mjg59) wrote a very cool interactive Twitter bot which
+fetches your Github SSH Public Key and executes Hashvis on the first key and
+tweets out the generated picture.
+
+You can write your Github username to the bot and it will tweet out your,
+hopefully very unique, picture.
+
+Check out the bot at https://twitter.com/github_idbot
+
 ## Gallery
 
 ![ahf](https://raw.githubusercontent.com/ahf/hashvis/master/misc/examples/ahf.png "SHA3(ahf)")
