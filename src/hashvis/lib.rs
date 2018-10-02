@@ -5,9 +5,7 @@
 extern crate image;
 extern crate rand;
 
-use std::fs::File;
-
-use image::{ImageRgb8, Rgb, RgbImage, PNG};
+use image::{ImageRgb8, Rgb, RgbImage};
 
 /// Expression types and helpers.
 mod expression;
@@ -57,7 +55,6 @@ impl ImageGenerator {
             Rgb([to_u8(r), to_u8(g), to_u8(b)])
         });
 
-        let file = &mut File::create(filename).unwrap();
-        ImageRgb8(image).save(file, PNG).unwrap();
+        ImageRgb8(image).save(filename).unwrap();
     }
 }

@@ -21,7 +21,7 @@ fn main() {
              .required(true)
              .takes_value(true)
              .index(1)
-             .help("Output file to store the PNG image in."))
+             .help("Output file to store the image in. The extension of the filename decides the image output format."))
         .arg(Arg::with_name("string")
              .required(true)
              .takes_value(true)
