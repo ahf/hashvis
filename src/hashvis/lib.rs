@@ -22,6 +22,7 @@ pub struct ImageGenerator {
     r: Box<Evaluate>,
     g: Box<Evaluate>,
     b: Box<Evaluate>,
+    random_data_used: usize,
 }
 
 impl ImageGenerator {
@@ -32,6 +33,7 @@ impl ImageGenerator {
             r: generator.generate(),
             g: generator.generate(),
             b: generator.generate(),
+            random_data_used: generator.random_data_used(),
         }
     }
 
@@ -43,6 +45,8 @@ impl ImageGenerator {
         println!("R: f(x, y) = {}", self.r);
         println!("G: f(x, y) = {}", self.g);
         println!("B: f(x, y) = {}", self.b);
+
+        println!("Random data used = {}", self.random_data_used);
 
         let image = RgbImage::from_fn(size, size, |i_x, i_y| {
             let x = ((i_x as f64) - unit_size) / unit_size;

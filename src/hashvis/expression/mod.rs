@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 use std::fmt;
+use std::mem;
 
 use rand::{Rng, SeedableRng};
 use rand::chacha::ChaChaRng;
@@ -43,6 +44,7 @@ pub trait Evaluate: fmt::Display {
 
 pub struct Generator {
     rng: Box<Rng>,
+    random_data_used: usize,
 }
 
 impl Generator {
@@ -60,10 +62,16 @@ impl Generator {
 
         Generator {
             rng: Box::new(ChaChaRng::from_seed(v.as_slice())),
+            random_data_used: 0,
         }
     }
 
+    pub fn random_data_used(self) -> usize {
+        self.random_data_used
+    }
+
     pub fn next_f64(&mut self) -> f64 {
+        self.random_data_used += mem::size_of::<f64>();
         self.rng.next_f64()
     }
 
