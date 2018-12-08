@@ -29,6 +29,37 @@ use self::tan_pi::TanPi;
 mod elliptic_curve;
 use self::elliptic_curve::EllipticCurve;
 
+pub enum ExpressionType {
+    SinPi,
+    CosPi,
+    TanPi,
+    Product,
+    EllipticCurve,
+    X,
+    Y,
+}
+
+impl ExpressionType {
+    pub fn generate(&self, generator: &mut Generator, probability: f64) -> Box<Evaluate> {
+        match *self {
+            ExpressionType::SinPi =>
+                SinPi::generate(generator, probability),
+            ExpressionType::CosPi =>
+                CosPi::generate(generator, probability),
+            ExpressionType::TanPi =>
+                TanPi::generate(generator, probability),
+            ExpressionType::Product =>
+                Product::generate(generator, probability),
+            ExpressionType::EllipticCurve =>
+                EllipticCurve::generate(generator),
+            ExpressionType::X =>
+                X::generate(),
+            ExpressionType::Y =>
+                Y::generate(),
+        }
+    }
+}
+
 /// Trait for items that supports evaluating expressions at a given
 /// point in a Cartesian coordinate system.
 pub trait Evaluate: fmt::Display {
@@ -85,17 +116,18 @@ impl Generator {
         let mut set = Vec::new();
 
         if self.next_f64() < probability {
-            set.push(SinPi::generate(self, probability));
-            set.push(CosPi::generate(self, probability));
-            set.push(TanPi::generate(self, probability));
-            set.push(Product::generate(self, probability));
-            set.push(EllipticCurve::generate(self));
+            set.push(ExpressionType::SinPi);
+            set.push(ExpressionType::CosPi);
+            set.push(ExpressionType::TanPi);
+            set.push(ExpressionType::Product);
+            set.push(ExpressionType::EllipticCurve);
         } else {
-            set.push(X::generate());
-            set.push(Y::generate());
+            set.push(ExpressionType::X);
+            set.push(ExpressionType::Y);
         }
 
         self.rng.shuffle(&mut set);
-        set.remove(0)
+        let expression_type = set.remove(0);
+        expression_type.generate(self, probability)
     }
 }
