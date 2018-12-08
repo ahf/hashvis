@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-extern crate sha3;
 extern crate clap;
+extern crate sha3;
 
 extern crate hashvis;
 
-use sha3::{Sha3_256, Digest};
-use clap::{Arg, App};
+use clap::{App, Arg};
+use sha3::{Digest, Sha3_256};
 
 use hashvis::ImageGenerator;
 
@@ -38,7 +38,10 @@ fn main() {
     let string = matches.value_of("string").unwrap();
     let size = matches.value_of("size").unwrap();
 
-    println!("Generating image with SHA3(\"{}\") in {} ...", string, filename);
+    println!(
+        "Generating image with SHA3(\"{}\") in {} ...",
+        string, filename
+    );
 
     let mut h = Sha3_256::default();
     h.input(string.as_bytes());

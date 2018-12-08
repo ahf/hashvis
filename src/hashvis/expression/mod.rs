@@ -5,8 +5,8 @@
 use std::fmt;
 use std::mem;
 
-use rand::{Rng, SeedableRng};
 use rand::chacha::ChaChaRng;
+use rand::{Rng, SeedableRng};
 
 mod x;
 use self::x::X;
@@ -42,20 +42,13 @@ pub enum ExpressionType {
 impl ExpressionType {
     pub fn generate(&self, generator: &mut Generator, probability: f64) -> Box<Evaluate> {
         match *self {
-            ExpressionType::SinPi =>
-                SinPi::generate(generator, probability),
-            ExpressionType::CosPi =>
-                CosPi::generate(generator, probability),
-            ExpressionType::TanPi =>
-                TanPi::generate(generator, probability),
-            ExpressionType::Product =>
-                Product::generate(generator, probability),
-            ExpressionType::EllipticCurve =>
-                EllipticCurve::generate(generator),
-            ExpressionType::X =>
-                X::generate(),
-            ExpressionType::Y =>
-                Y::generate(),
+            ExpressionType::SinPi => SinPi::generate(generator, probability),
+            ExpressionType::CosPi => CosPi::generate(generator, probability),
+            ExpressionType::TanPi => TanPi::generate(generator, probability),
+            ExpressionType::Product => Product::generate(generator, probability),
+            ExpressionType::EllipticCurve => EllipticCurve::generate(generator),
+            ExpressionType::X => X::generate(),
+            ExpressionType::Y => Y::generate(),
         }
     }
 }

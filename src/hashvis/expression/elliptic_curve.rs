@@ -13,10 +13,7 @@ pub struct EllipticCurve {
 
 impl EllipticCurve {
     pub fn new(a: f64, b: f64) -> EllipticCurve {
-        EllipticCurve {
-            a,
-            b,
-        }
+        EllipticCurve { a, b }
     }
 
     pub fn generate(generator: &mut Generator) -> Box<Evaluate> {
