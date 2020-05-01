@@ -5,7 +5,7 @@
 extern crate image;
 extern crate rand;
 
-use image::{ImageRgb8, Rgb, RgbImage};
+use image::{Rgb, RgbImage};
 
 /// Expression types and helpers.
 mod expression;
@@ -59,6 +59,6 @@ impl ImageGenerator {
             Rgb([to_u8(r), to_u8(g), to_u8(b)])
         });
 
-        ImageRgb8(image).save(filename).unwrap();
+        image.save(filename).unwrap();
     }
 }
