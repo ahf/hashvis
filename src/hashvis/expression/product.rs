@@ -7,19 +7,19 @@ use std::fmt;
 use expression::{Evaluate, Generator};
 
 pub struct Product {
-    expression_lhs: Box<Evaluate>,
-    expression_rhs: Box<Evaluate>,
+    expression_lhs: Box<dyn Evaluate>,
+    expression_rhs: Box<dyn Evaluate>,
 }
 
 impl Product {
-    pub fn new(expression_lhs: Box<Evaluate>, expression_rhs: Box<Evaluate>) -> Product {
+    pub fn new(expression_lhs: Box<dyn Evaluate>, expression_rhs: Box<dyn Evaluate>) -> Product {
         Product {
             expression_lhs,
             expression_rhs,
         }
     }
 
-    pub fn generate(generator: &mut Generator, probability: f64) -> Box<Evaluate> {
+    pub fn generate(generator: &mut Generator, probability: f64) -> Box<dyn Evaluate> {
         let lhs = generator.generate_expression(probability * probability);
         let rhs = generator.generate_expression(probability * probability);
 

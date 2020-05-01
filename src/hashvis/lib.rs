@@ -19,9 +19,9 @@ fn to_u8(x: f64) -> u8 {
 }
 
 pub struct ImageGenerator {
-    r: Box<Evaluate>,
-    g: Box<Evaluate>,
-    b: Box<Evaluate>,
+    r: Box<dyn Evaluate>,
+    g: Box<dyn Evaluate>,
+    b: Box<dyn Evaluate>,
     random_data_used: usize,
 }
 

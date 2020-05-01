@@ -8,15 +8,15 @@ use expression::{Evaluate, Generator};
 use math::{sin, PI};
 
 pub struct SinPi {
-    expression: Box<Evaluate>,
+    expression: Box<dyn Evaluate>,
 }
 
 impl SinPi {
-    pub fn new(expression: Box<Evaluate>) -> SinPi {
+    pub fn new(expression: Box<dyn Evaluate>) -> SinPi {
         SinPi { expression }
     }
 
-    pub fn generate(generator: &mut Generator, probability: f64) -> Box<Evaluate> {
+    pub fn generate(generator: &mut Generator, probability: f64) -> Box<dyn Evaluate> {
         let expression = generator.generate_expression(probability * probability);
 
         Box::new(SinPi::new(expression))

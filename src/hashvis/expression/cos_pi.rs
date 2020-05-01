@@ -8,15 +8,15 @@ use expression::{Evaluate, Generator};
 use math::{cos, PI};
 
 pub struct CosPi {
-    expression: Box<Evaluate>,
+    expression: Box<dyn Evaluate>,
 }
 
 impl CosPi {
-    pub fn new(expression: Box<Evaluate>) -> CosPi {
+    pub fn new(expression: Box<dyn Evaluate>) -> CosPi {
         CosPi { expression }
     }
 
-    pub fn generate(generator: &mut Generator, probability: f64) -> Box<Evaluate> {
+    pub fn generate(generator: &mut Generator, probability: f64) -> Box<dyn Evaluate> {
         let expression = generator.generate_expression(probability * probability);
 
         Box::new(CosPi::new(expression))

@@ -14,7 +14,7 @@ impl Y {
         Y {}
     }
 
-    pub fn generate() -> Box<Evaluate> {
+    pub fn generate() -> Box<dyn Evaluate> {
         Box::new(Y::new())
     }
 }

@@ -16,7 +16,7 @@ impl EllipticCurve {
         EllipticCurve { a, b }
     }
 
-    pub fn generate(generator: &mut Generator) -> Box<Evaluate> {
+    pub fn generate(generator: &mut Generator) -> Box<dyn Evaluate> {
         let a = generator.next_f64();
         let b = generator.next_f64();
 

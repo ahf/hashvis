@@ -8,15 +8,15 @@ use expression::{Evaluate, Generator};
 use math::{tan, PI};
 
 pub struct TanPi {
-    expression: Box<Evaluate>,
+    expression: Box<dyn Evaluate>,
 }
 
 impl TanPi {
-    pub fn new(expression: Box<Evaluate>) -> TanPi {
+    pub fn new(expression: Box<dyn Evaluate>) -> TanPi {
         TanPi { expression }
     }
 
-    pub fn generate(generator: &mut Generator, probability: f64) -> Box<Evaluate> {
+    pub fn generate(generator: &mut Generator, probability: f64) -> Box<dyn Evaluate> {
         let expression = generator.generate_expression(probability * probability);
 
         Box::new(TanPi::new(expression))

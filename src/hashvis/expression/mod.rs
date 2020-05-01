@@ -40,7 +40,7 @@ pub enum ExpressionType {
 }
 
 impl ExpressionType {
-    pub fn generate(&self, generator: &mut Generator, probability: f64) -> Box<Evaluate> {
+    pub fn generate(&self, generator: &mut Generator, probability: f64) -> Box<dyn Evaluate> {
         match *self {
             ExpressionType::SinPi => SinPi::generate(generator, probability),
             ExpressionType::CosPi => CosPi::generate(generator, probability),
@@ -67,7 +67,7 @@ pub trait Evaluate: fmt::Display {
 }
 
 pub struct Generator {
-    rng: Box<Rng>,
+    rng: Box<dyn Rng>,
     random_data_used: usize,
 }
 
@@ -99,11 +99,11 @@ impl Generator {
         self.rng.next_f64()
     }
 
-    pub fn generate(&mut self) -> Box<Evaluate> {
+    pub fn generate(&mut self) -> Box<dyn Evaluate> {
         self.generate_expression(0.99)
     }
 
-    pub fn generate_expression(&mut self, probability: f64) -> Box<Evaluate> {
+    pub fn generate_expression(&mut self, probability: f64) -> Box<dyn Evaluate> {
         assert!(probability >= 0.00 && probability < 1.00);
 
         let mut set = Vec::new();
