@@ -54,5 +54,9 @@ fn main() {
     let r = h.result();
 
     let generator = ImageGenerator::new(r.as_slice());
-    generator.generate(String::from(filename), size.parse().unwrap_or(256), factor.parse().unwrap_or(1.0));
+    generator.generate(
+        String::from(filename),
+        size.parse().unwrap_or(256),
+        factor.parse().unwrap_or(1.0),
+    );
 }
