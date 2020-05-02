@@ -32,11 +32,17 @@ fn main() {
              .takes_value(true)
              .index(3)
              .help("Size of the output image"))
+        .arg(Arg::with_name("factor")
+             .required(false)
+             .takes_value(true)
+             .index(4)
+             .help("Factor specifies how much to zoom out on the image."))
         .get_matches();
 
     let filename = matches.value_of("filename").unwrap();
     let string = matches.value_of("string").unwrap();
     let size = matches.value_of("size").unwrap();
+    let factor = matches.value_of("factor").unwrap_or("1.0");
 
     println!(
         "Generating image with SHA3(\"{}\") in {} ...",
@@ -48,5 +54,5 @@ fn main() {
     let r = h.result();
 
     let generator = ImageGenerator::new(r.as_slice());
-    generator.generate(String::from(filename), size.parse().unwrap_or(256));
+    generator.generate(String::from(filename), size.parse().unwrap_or(256), factor.parse().unwrap_or(1.0));
 }

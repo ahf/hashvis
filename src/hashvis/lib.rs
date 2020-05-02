@@ -37,7 +37,7 @@ impl ImageGenerator {
         }
     }
 
-    pub fn generate(&self, filename: String, size: u32) {
+    pub fn generate(&self, filename: String, size: u32, factor: f64) {
         let unit_size: f64 = (size as f64) / 2.0;
 
         assert!(size % 2 == 0);
@@ -49,8 +49,8 @@ impl ImageGenerator {
         println!("Random data used = {}", self.random_data_used);
 
         let image = RgbImage::from_fn(size, size, |i_x, i_y| {
-            let x = ((i_x as f64) - unit_size) / unit_size;
-            let y = ((i_y as f64) - unit_size) / unit_size;
+            let x = (((i_x as f64) - unit_size) / unit_size) * factor;
+            let y = (((i_y as f64) - unit_size) / unit_size) * factor;
 
             let r = self.r.evaluate(x, y);
             let g = self.g.evaluate(x, y);
