@@ -52,6 +52,15 @@ To run the minimal test suite:
 
     $ cargo test
 
+## Zooming In and Out
+
+The `factor` argument that the Hashvis binary takes as an input allows you to
+zoom in and out. A value smaller than 1.0 will zoom in, and anything larger
+than 1.0 will zoom out of the normal view port. The default value is 1.0.
+
+![31512-1](https://raw.githubusercontent.com/ahf/hashvis/master/misc/examples/31512-factor-1.png "SHA3(31512) with factor = 1 (default)")
+![31512-4](https://raw.githubusercontent.com/ahf/hashvis/master/misc/examples/31512-factor-4.png "SHA3(31512) with factor = 4")
+
 ## Authors
 
 - Alexander Færøy (<ahf@0x90.dk>).
