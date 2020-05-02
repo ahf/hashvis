@@ -29,7 +29,6 @@ impl Product {
 
 impl Evaluate for Product {
     fn evaluate(&self, x: f64, y: f64) -> f64 {
-        assert!(x >= -1.0 && y <= 1.0);
         self.expression_lhs.evaluate(x, y) * self.expression_rhs.evaluate(x, y)
     }
 }

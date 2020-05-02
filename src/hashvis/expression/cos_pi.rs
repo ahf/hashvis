@@ -25,7 +25,6 @@ impl CosPi {
 
 impl Evaluate for CosPi {
     fn evaluate(&self, x: f64, y: f64) -> f64 {
-        assert!(x >= -1.0 && y <= 1.0);
         cos(PI * self.expression.evaluate(x, y))
     }
 }

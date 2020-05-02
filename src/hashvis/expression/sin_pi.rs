@@ -25,7 +25,6 @@ impl SinPi {
 
 impl Evaluate for SinPi {
     fn evaluate(&self, x: f64, y: f64) -> f64 {
-        assert!(x >= -1.0 && y <= 1.0);
         sin(PI * self.expression.evaluate(x, y))
     }
 }

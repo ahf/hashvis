@@ -26,7 +26,6 @@ impl EllipticCurve {
 
 impl Evaluate for EllipticCurve {
     fn evaluate(&self, x: f64, y: f64) -> f64 {
-        assert!(x >= -1.0 && y <= 1.0);
         x.powf(3.0) + self.a * x + self.b - y.powf(2.0)
     }
 }

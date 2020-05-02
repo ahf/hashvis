@@ -20,8 +20,7 @@ impl X {
 }
 
 impl Evaluate for X {
-    fn evaluate(&self, x: f64, y: f64) -> f64 {
-        assert!(x >= -1.0 && y <= 1.0);
+    fn evaluate(&self, x: f64, _y: f64) -> f64 {
         x
     }
 }
